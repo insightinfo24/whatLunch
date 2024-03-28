@@ -1,0 +1,16 @@
+.MenuCheckOff{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: right;
+    color: white;
+    margin: 5px 50px 5px 10px;
+
+    &-Button {
+        border-color: var(--white);
+        border-radius: 0.2rem;
+        color: var(--white);
+        background-color: var(--main);
+        cursor: pointer;
+    }
+}
