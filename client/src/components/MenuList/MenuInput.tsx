@@ -5,7 +5,11 @@ import { inputState, menusState, MenuTypes } from '../../recoil/menu';
 import './MenuInput.scss';
 import axios from 'axios';
 
-const MenuInput = (props: any): JSX.Element => {
+interface PropTypes {
+  fetchData: () => void;
+}
+
+const MenuInput = ({fetchData}: PropTypes): JSX.Element => {
   const [contents, setContents] = useRecoilState<string>(inputState);
 
   const menus = useRecoilValue<MenuTypes[]>(menusState);
@@ -39,7 +43,7 @@ const MenuInput = (props: any): JSX.Element => {
     // };
 
     // setMenus([...menus, menu]);
-    props.fetchData();
+    fetchData();
 
     setContents('');
   }, [contents, setContents, setMenus, menus]);

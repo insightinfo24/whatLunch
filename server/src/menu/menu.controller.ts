@@ -19,19 +19,23 @@ export class MenuController {
     return this.menuService.findAll();
   }
 
-  @Patch(':id')
-  changeExclude(@Param() id: number): Promise<void> {
+  @Get(':id')
+  changeExclude(@Param('id') id: number): Promise<Menu> {
     return this.menuService.changeExclude(id);
   }
 
   @Post()
   insertMenu(@Body() menu: Menu) {
-    console.log(menu);
     return this.menuService.insert(menu);
   }
 
+  @Patch()
+  updateMenu(@Body('id') id: number, @Body('contents') contents: string) {
+    return this.menuService.update(id, contents);
+  }
+
   @Delete(':id')
-  deleteMenu(@Param() id: number): Promise<void> {
+  deleteMenu(@Param('id') id: number): Promise<void> {
     return this.menuService.delete(id);
   }
 }

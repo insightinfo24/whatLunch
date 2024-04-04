@@ -5,17 +5,22 @@ import MenuItem from './MenuItem';
 import './MenuList.scss';
 import axios from 'axios';
 
-const MenuList = (props: any): JSX.Element => {
+interface PropTypes {
+  fetchData: () => void;
+}
+
+const MenuList = ({ fetchData }: PropTypes): JSX.Element => {
   const [menus, setMenus] = useRecoilState<MenuTypes[]>(menusState);
 
   const onComplete = useCallback(
     async (id: number) => {
-      await axios.patch('http://localhost:3002/menu/' + id).then(response => {
+      console.log('clinet id: ', id);
+      await axios.get('http://localhost:3002/menu/' + id).then(response => {
         if (response.status === 200) {
           console.log('update Success!');
         }
       });
-      props.fetchData();
+      fetchData();
       // setMenus(
       //   menus.map((menu: MenuTypes) => {
       //     // 매개변수로 받은 id와 같은 객체만 완료상태 업데이트
@@ -37,7 +42,7 @@ const MenuList = (props: any): JSX.Element => {
           console.log('delete Success!');
         }
       });
-      props.fetchData();
+      fetchData();
     },
     [setMenus, menus],
   );
@@ -59,6 +64,7 @@ const MenuList = (props: any): JSX.Element => {
               onDelete={onDelete}
               menus={menus}
               setMenus={setMenus}
+              fetchData={fetchData}
             />
           );
         })

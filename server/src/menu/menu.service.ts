@@ -13,21 +13,21 @@ export class MenuService {
     return this.menuRepository.find();
   }
 
-  findOne(id: number): Promise<Menu> {
-    return this.menuRepository.findOne({ where: { id } });
-  }
-
-  async changeExclude(id: number) {
-    const changeMenu = await this.menuRepository.findOne({
-      where: { id: id },
-    });
-    console.log(id, changeMenu);
+  async changeExclude(id: number): Promise<Menu> {
+    const changeMenu = await this.menuRepository.findOneBy({ id });
     changeMenu.isExclude = changeMenu.isExclude ? false : true;
     await this.menuRepository.save(changeMenu);
+    return changeMenu;
   }
 
   async insert(menu: Menu) {
     return this.menuRepository.save(menu);
+  }
+
+  async update(id: number, contents: string) {
+    const changeContents = await this.menuRepository.findOneBy({ id });
+    changeContents.contents = contents;
+    await this.menuRepository.save(changeContents);
   }
 
   async delete(id: number) {
