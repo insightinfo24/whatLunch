@@ -1,0 +1,14 @@
+.MenuHistory{
+  &-Button {
+    margin: 10%;
+    width: 30%;
+    height: 50px;
+    border-color: var(--white);
+    border-radius: 1rem;
+    color: var(--white);
+    background-color: var(--main);
+    font-size: 1.3rem;
+    cursor: pointer;
+    font-family: 'yg-jalnan';
+  }
+}

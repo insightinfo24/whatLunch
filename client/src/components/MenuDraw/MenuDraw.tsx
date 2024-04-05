@@ -5,7 +5,7 @@ import { MenuTypes } from '../../recoil/menu';
 import Swal from 'sweetalert2';
 import _ from 'lodash';
 import './MenuDraw.scss';
-import LoadingModal from '../../components/MenuModal/LoadingModal';
+import LoadingModal from '../../components/Modal/LoadingModal';
 
 const MenuDraw = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState<boolean>(false);

@@ -4,7 +4,7 @@ import { FaPen, FaPlus, FaMinus } from 'react-icons/fa';
 import { MdClose } from 'react-icons/md';
 import { SetterOrUpdater, useSetRecoilState } from 'recoil';
 import './MenuItem.scss';
-import MenuModal from '../../components/MenuModal/MenuModal';
+import MenuModal from '../Modal/MenuModal';
 import axios from 'axios';
 
 interface PropTypes {
