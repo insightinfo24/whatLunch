@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import _ from 'lodash';
 import './MenuDraw.scss';
 import LoadingModal from '../../components/Modal/LoadingModal';
+import axios from 'axios';
 
 const MenuDraw = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -52,17 +53,17 @@ const MenuDraw = (): JSX.Element => {
     const drawMenu: string[] = [];
 
     // console.log(weightedArray);
-      let isVal: any;
-      for (let j = 0; j < 3; j++) {
-        while (1) {
-          isVal = _.sample(weightedArray);
-          if (!drawMenu.includes(isVal)) {
-            drawMenu.push(isVal);
-            break;
-          }
+    let isVal: any;
+    for (let j = 0; j < 3; j++) {
+      while (1) {
+        isVal = _.sample(weightedArray);
+        if (!drawMenu.includes(isVal)) {
+          drawMenu.push(isVal);
+          break;
         }
       }
-      console.log(drawMenu);
+    }
+    console.log(drawMenu);
 
     // const drawMenu = _.sampleSize(menuList, 3);
         
@@ -96,6 +97,16 @@ const MenuDraw = (): JSX.Element => {
         width: "20%",
         confirmButtonText: "확인",
       })
+  
+    const paramData = { "first" : drawMenu[0] , "second" : drawMenu[1], "third" : drawMenu[2], "pickNum" : ranNum}
+
+    axios.post('http://localhost:3002/history/', paramData)
+      .then(response => {
+        if (response.status === 200) {
+          console.log(response.data);
+        }
+      });
+    
     }, 2000);
 
   }, [menus]) 
