@@ -1,73 +1,46 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Nest.js
+## 프로젝트 구성(서버)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+### nest.js 설치 
+  >  npm install -g @nestjs/cli
+ 
+#### nestjs 설치 버전 확인
+  > nest --version
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+#### nestjs 명령어 확인
+  > nest
 
-## Description
+#### ! 만약 위 명령어가 안될 시 위 명령어에서 nest -> npx @nestjs/cli로 수정하고 재시도
+  > npx @nestjs/cli
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+  > npx @nestjs/cli --version
 
-## Installation
+#### 이후 나오는 명령어에도 마찬가지로 nest -> npx @nestjs/cli로 적용가능
 
-```bash
-$ npm install
-```
+---
+### 기본 프로젝트 생성
+  > nest new new-project
+#### 패키지 매니저 선택
+  > cd new-project
+#### 서버 실행
+  > npm run start:dev
+#### 3000번 포트에서 서버 구동 확인가능
 
-## Running the app
+---
+#### 신규 컨트롤러 생성 (ex : menu)
+  > nest generate controller menu
 
-```bash
-# development
-$ npm run start
+#### 신규 서비스 생성 (ex: menu)
+  > nest generate service menu
 
-# watch mode
-$ npm run start:dev
+#### 신규 모듈 생성 (ex: menu)
+  > nest g mo menu
 
-# production mode
-$ npm run start:prod
-```
 
-## Test
+---
+#### nest.js typeorm을 이용해 DB연결
+  > npm install --save @nestjs/typeorm typeorm mysql2
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+---
+### 📝 참고
+   https://cdragon.tistory.com/entry/NestJS-4-NestJS-%EC%8B%9C%EC%9E%91-%EC%84%A4%EC%B9%98%EB%B6%80%ED%84%B0-%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84%EA%B9%8C%EC%A7%80
