@@ -4,6 +4,7 @@ import { menusState, MenuTypes } from '../../recoil/menu';
 import MenuItem from './MenuItem';
 import './MenuList.scss';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 interface PropTypes {
   fetchData: () => void;
@@ -34,15 +35,26 @@ const MenuList = ({ fetchData }: PropTypes): JSX.Element => {
   );
 
   const onDelete = useCallback(
-    async (id: number) => {
+    (id: number) => {
+      Swal.fire({
+        width: '400px',
+        title: '정말 삭제하시겠습니까?',
+        showCancelButton: true,
+        confirmButtonText: '삭제',
+        cancelButtonText: '취소'
+      }).then(async(result) => {
+        if (result.isConfirmed) {
+          await axios.delete('http://localhost:3002/menu/' + id).then(response => {
+            if (response.status === 200) {
+              console.log('delete Success!');
+            }
+          });
+          fetchData();
+        }
+      })
       // 매개변수로 받은 id와 동일하지 않는 객체들만 필터링
       // setMenus(menus.filter((menu: MenuTypes) => menu.id !== id));
-      await axios.delete('http://localhost:3002/menu/' + id).then(response => {
-        if (response.status === 200) {
-          console.log('delete Success!');
-        }
-      });
-      fetchData();
+      
     },
     [setMenus, menus],
   );

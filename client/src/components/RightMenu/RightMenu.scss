@@ -1,0 +1,18 @@
+.RightButton{
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  color: var(--white);
+  margin: 5px 50px 5px 10px;
+
+  &-Button {
+    margin: 0 5px 0 5px;
+    border-color: var(--white);
+    border-radius: 0.2rem;
+    color: var(--white);
+    background-color: var(--main);
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-family: 'yg-jalnan';
+  }
+}

@@ -4,11 +4,10 @@ import MenuList from '../../components/MenuList/MenuList';
 import MenuTitle from '../../components/MenuTitle/MenuTitle';
 import MenuInput from '../../components/MenuList/MenuInput';
 import MenuDraw from '../../components/MenuDraw/MenuDraw';
-import MenuCheckOff from '../MenuCheckOff/MenuCheckOff';
+import MenuCheckOff from '../RightMenu/RightMenu';
 import axios from 'axios';
 import { MenuTypes, menusState } from '../../recoil/menu';
 import { useRecoilState } from 'recoil';
-import MenuHistory from '../MenuHistory/MenuHistory';
 
 const MenuTemplate = (): JSX.Element => {
   const [menus, setMenus] = useRecoilState<MenuTypes[]>(menusState);
@@ -37,8 +36,10 @@ const MenuTemplate = (): JSX.Element => {
         {/* 타이틀 */}
         <MenuTitle /> 
 
-        {/* 클리어 버튼 */}
-        <MenuCheckOff />
+        <div className='RightButton'>
+          {/* 클리어 버튼 */}
+          <MenuCheckOff />
+        </div>
 
         {/* 메뉴 목록 */}
         <MenuList fetchData={fetchData} />
@@ -48,9 +49,6 @@ const MenuTemplate = (): JSX.Element => {
 
         {/* 뽑기 버튼 */}
         <MenuDraw />
-
-        {/* 최근 뽑힌 메뉴 목록 */}
-        <MenuHistory/>
       </div>
     </div>
   );
