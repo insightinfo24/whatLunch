@@ -1,0 +1,13 @@
+.LeftMenu {
+  position: absolute;
+  width: 250px;
+  margin: 10% 0 0 2%;
+  left: 0;
+  top: 0;
+  color: var(--white);
+
+  & > ul > li {
+    margin: 10%;
+    font-size: 1.2rem;
+  }
+}
