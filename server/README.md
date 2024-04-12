@@ -18,6 +18,10 @@
 #### 이후 나오는 명령어에도 마찬가지로 nest -> npx @nestjs/cli로 적용가능
 
 ---
+#### 'nest은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는 배치 파일이 아닙니다.' 라는 오류 발생시 환경변수 > Path 설정 > npm 추가
+(c:/Users/(유저PC명)/AppData/Roaming/npm)
+
+---
 ### 기본 프로젝트 생성
   > nest new new-project
 #### 패키지 매니저 선택
