@@ -8,6 +8,7 @@ import MenuCheckOff from '../RightMenu/RightMenu';
 import axios from 'axios';
 import { MenuTypes, menusState } from '../../recoil/menu';
 import { useRecoilState } from 'recoil';
+import SnakTemplate from './SnakTemplate';
 
 const MenuTemplate = (): JSX.Element => {
   const [menus, setMenus] = useRecoilState<MenuTypes[]>(menusState);
@@ -34,7 +35,7 @@ const MenuTemplate = (): JSX.Element => {
     <div className="MenuTemplate">
       <div className="MenuTemplate-Contents">
         {/* 타이틀 */}
-        <MenuTitle /> 
+        <MenuTitle menu={"lunch"}/> 
 
         <div className='RightButton'>
           {/* 클리어 버튼 */}
@@ -49,6 +50,8 @@ const MenuTemplate = (): JSX.Element => {
 
         {/* 뽑기 버튼 */}
         <MenuDraw />
+
+        <SnakTemplate />
       </div>
     </div>
   );

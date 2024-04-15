@@ -2,12 +2,15 @@ import React from 'react'
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
 import './MenuTitle.scss';
 
+interface PropTypes{
+  menu: string;
+}
 
-const MenuTitle = () => {
+const MenuTitle = ({ menu } : PropTypes) => {
   return (
     <div className='MenuTitle'>
       <MdOutlineRestaurantMenu className='MenuTitle-Icon' />
-      <div className='MenuTitle-Title'>Menu List</div>
+      <div className='MenuTitle-Title'>{ menu === "lunch" ? "Menu List" : "Snak List"}</div>
     </div>
   )
 }
