@@ -42,7 +42,7 @@ const MenuList = ({ fetchData }: PropTypes): JSX.Element => {
         showCancelButton: true,
         confirmButtonText: '삭제',
         cancelButtonText: '취소'
-      }).then(async(result) => {
+      }).then(async (result) => {
         if (result.isConfirmed) {
           await axios.delete('http://localhost:3002/menu/' + id).then(response => {
             if (response.status === 200) {
@@ -87,6 +87,6 @@ const MenuList = ({ fetchData }: PropTypes): JSX.Element => {
       )}
     </div>
   );
-};
+}
 
 export default MenuList;

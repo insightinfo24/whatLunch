@@ -1,0 +1,9 @@
+.SnakList{
+  color: var(--white);
+
+
+  & > span {
+    margin: 0 2px 0 0;
+  }
+  
+}

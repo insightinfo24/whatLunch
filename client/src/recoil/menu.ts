@@ -1,7 +1,5 @@
 import { atom } from 'recoil';
 
-// npx serve build
-
 export interface MenuTypes {
   id: number;
   contents: string;
