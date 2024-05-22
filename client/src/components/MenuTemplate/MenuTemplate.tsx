@@ -14,7 +14,7 @@ const MenuTemplate = (): JSX.Element => {
   const [menus, setMenus] = useRecoilState<MenuTypes[]>(menusState);
   
   // 메뉴 설정값
-  const menu = -1;
+  const menu = 1;
 
   useEffect(() => {
     fetchData();

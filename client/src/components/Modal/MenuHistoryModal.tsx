@@ -13,6 +13,7 @@ interface History{
   second: string;
   third: string;
   pickNum: number;
+  createdAt: Date;
 }
 
 const MenuHistoryModal = ({
@@ -38,6 +39,11 @@ const MenuHistoryModal = ({
     setIsModal(false);
   }, [setIsModal]);
 
+  const dateForm = (date) => {
+    const createdDate = new Date(date);
+    return "(" + createdDate.getMonth() + "월 " + createdDate.getDate() + "일)";
+  }
+
   return (
     <>
       <div className='MenuHistoryModal-Overlay' onClick={onCloseModal}></div>
@@ -51,7 +57,8 @@ const MenuHistoryModal = ({
               <li key={list.id}>
                 <span className={list.pickNum === 0 ? 'MenuHistoryModal-Pick' : '' }>{list.first}</span>
                 <span className={list.pickNum === 1 ? 'MenuHistoryModal-Pick' : '' }>{list.second}</span>
-                <span className={list.pickNum === 2 ? 'MenuHistoryModal-Pick' : '' }>{list.third}</span>
+                <span className={list.pickNum === 2 ? 'MenuHistoryModal-Pick' : ''}>{list.third}</span>
+                <span>{dateForm(list.createdAt)}</span>
               </li>
             );
           }) : (<span>{'당첨 리스트가 없습니다'}</span>)}

@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'history' })
 export class History {
@@ -16,4 +16,7 @@ export class History {
 
   @Column({ type: 'int' })
   pickNum: number;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt: Date;
 }
